@@ -30,8 +30,11 @@
   border: 1px dashed pink;
 } */
 
-.debug #friend-list {
+.debug nav {
   border: 1px dashed black;
+}
+.debug #user-profile {
+  border: 1px dashed pink;
 }
 
 .debug #chat-area {

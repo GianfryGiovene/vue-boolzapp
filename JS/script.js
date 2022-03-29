@@ -174,4 +174,15 @@ const contacts= [
 
 // ---------- PROGRAM --------
 
+const app = new Vue({
+    el:"#app",
+    data:{
+        contacts,
+    },
+
+    methods:{
+
+    }
+
+})
 // ---------- / PROGRAM --------
