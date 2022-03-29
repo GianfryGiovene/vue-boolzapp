@@ -9,7 +9,6 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="CSS/style.css" />
-    <link rel="stylesheet" href="CSS/debug.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script type="text/javaScript" src="JS/script.js" defer></script>
     <title>Boolzapp </title>
@@ -17,34 +16,47 @@
 
 
 <body class="debug">
-    <div id="app-background">
+    <div id="app-background" class="wrap-column">
         <!-- background colors -->
         <div id="bg-upper-side"></div>
         <div id="bg-bottom-side"></div>
         <!-- / background colors -->
         <!-- Boolzapp application -->
-        <div id="app">
+        <div id="app" class="wrap">
             <!-- navigation side -->
-            <nav>
-                <div id="user-profile">
-                    <div id="user-information">
+            <nav class="wrap-column">
+                <div id="user-profile" class="wrap">
+                    <div id="user-information" class="wrap">
                         <img src="IMG/avatar_io.jpg" alt="Me">
                         <span>Sofia </span>
                     </div>
                     <div id="user-options">
-                        <i class="fas fa-circle-notch"></i>
-                        <i class="fas fa-comment-alt"></i>
-                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fas fa-circle-notch icons-size"></i>
+                        <i class="fas fa-comment-alt icons-size"></i>
+                        <i class="fas fa-ellipsis-v icons-size"></i>
                     </div>
                 </div>
-                <div id="notifications">
-
+                <div id="notifications" class="wrap">
+                    <i class="fas fa-bell-slash icons-size"></i>
+                    <div class="wrap-column">
+                        <span>Ricevi notifiche di nuovi messaggi</span>
+                        <a href="#">Attivare notifiche desktop</a>
+                    </div>
                 </div>
                 <div id="search">
-
+                    <input class="search" type="text" placeholder="    &#128269;      Cerca o inizia una nuova chat">
                 </div>
                 <ul id="friends-list">
-                    <li></li>
+                    <li class="friend wrap">
+                        <div class="wrap friend-informations">
+                            <img src="IMG/avatar_1.jpg" alt="">
+                            <div class="wrap-column">
+                                <h3>Michele</h3>
+                                <span>Ultimo messaggio inviato</span>
+                            </div>
+                        </div>
+                        <span class="hours">12:00</span>
+                    </li>
                 </ul>
             </nav>
             <!-- / navigation side -->

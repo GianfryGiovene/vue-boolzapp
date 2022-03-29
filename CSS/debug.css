@@ -40,3 +40,7 @@
 .debug #chat-area {
   border: 1px dashed red;
 }
+
+.debug #search {
+  border: 1px dashed green;
+}
