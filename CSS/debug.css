@@ -1,0 +1,39 @@
+/* GENERICS */
+/* bootstrap */
+[class*="container"] {
+  border: 1px dashed black;
+}
+
+[class*="col"] {
+  border: 1px dashed red;
+}
+
+[class*="row"] {
+  border: 1px dashed pink;
+}
+/* / bootstrap */
+/* / GENERICS */
+
+.debug #upper-side {
+  border: 1px dashed salmon;
+}
+
+.debug #bottom-side {
+  border: 1px dashed yellow;
+}
+
+.debug-img {
+  border: 1px solid blue;
+}
+
+/* .debug #app {
+  border: 1px dashed pink;
+} */
+
+.debug #friend-list {
+  border: 1px dashed black;
+}
+
+.debug #chat-area {
+  border: 1px dashed red;
+}

@@ -1,0 +1,67 @@
+/* Root */
+:root {
+  --bg-top: #009688;
+  --bg-bottom: #dadbd3;
+  --bg-blue: #8edafc;
+  --bg-selected: #e9ebeb;
+  --bg-own-message: #d5f9ba;
+  --bg-primary-window: #eaeaea;
+  --bg-secondary-window: #6b7376;
+  --bg-chat: ../IMG/mine.jpg;
+  --primary-icon-color: #b2b3b3;
+  --secondary-icon-color: #6b7376;
+}
+
+/* / Root */
+
+/* Generics */
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* / Generics */
+
+/* Utilities */
+/* / Utilities */
+
+/* Content */
+#app-background {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#upper-side {
+  width: 100%;
+  height: 15vh;
+  background-color: var(--bg-top);
+}
+
+#bottom-side {
+  width: 100%;
+  height: 85vh;
+  background-color: var(--bg-bottom);
+}
+
+#app {
+  background-color: white;
+  align-self: center;
+  position: absolute;
+  width: 80%;
+  height: 95vh;
+  display: flex;
+}
+
+#friend-list {
+  width: 30%;
+  height: 100px;
+}
+
+#chat-area {
+  width: 70%;
+  height: 100px;
+}
+/* / Content */
