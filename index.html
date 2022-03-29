@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="CSS/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script type="text/javaScript" src="JS/script.js" defer></script>
-    <title>Boolzapp </title>
+    <title>Boolzapp</title>
 </head>
 
 
@@ -47,16 +47,21 @@
                     <input class="search" type="text" placeholder="    &#128269;      Cerca o inizia una nuova chat">
                 </div>
                 <ul id="friends-list">
-                    <li class="friend wrap">
-                        <div class="wrap friend-informations">
-                            <img src="IMG/avatar_1.jpg" alt="">
+                    <!-- friend message information -->
+                    <li v-for="(friend,index) in contacts" class="friend wrap">
+                        <div @click="setFriendPointer(index)" class="wrap friend-informations">
+                            <img :src="friend.avatar" alt="">
                             <div class="wrap-column">
-                                <h3>Michele</h3>
-                                <span>Ultimo messaggio inviato</span>
+                                <h3>{{friend.name}}</h3>
+                                <div v-for="(text,i) in friend.messages">
+                                    <span v-if="getLastMessage(i,friend.messages)" class="text">{{text.message}}</span>
+                                    <span v-if="getLastMessage(i,friend.messages)" class="hours">{{text.date}}</span>
+                                </div>
                             </div>
                         </div>
-                        <span class="hours">12:00</span>
+
                     </li>
+                    <!-- / friend message information -->
                 </ul>
             </nav>
             <!-- / navigation side -->

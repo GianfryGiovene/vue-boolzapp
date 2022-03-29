@@ -9,7 +9,7 @@ Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visua
 const contacts= [
     {
         name: 'Michele',
-        avatar: '../IMG/avatar_1.jpg',
+        avatar: 'IMG/avatar_1.jpg',
         visible: true,
         messages: [
             {
@@ -31,7 +31,7 @@ const contacts= [
     },
     {
         name: 'Fabio',
-        avatar: '../IMG/avatar_2.jpg',
+        avatar: 'IMG/avatar_2.jpg',
         visible: true,
         messages: [
             {
@@ -53,7 +53,7 @@ const contacts= [
     },
     {
         name: 'Samuele',
-        avatar: '../IMG/avatar_3.jpg',
+        avatar: 'IMG/avatar_3.jpg',
         visible: true,
         messages: [
             {
@@ -75,7 +75,7 @@ const contacts= [
     },
     {
         name: 'Alessandro B.',
-        avatar: '../IMG/avatar_4.jpg',
+        avatar: 'IMG/avatar_4.jpg',
         visible: true,
         messages: [
             {
@@ -92,7 +92,7 @@ const contacts= [
     },
     {
         name: 'Alessandro L.',
-        avatar: '../IMG/avatar_5.jpg',
+        avatar: 'IMG/avatar_5.jpg',
         visible: true,
         messages: [
             {
@@ -109,7 +109,7 @@ const contacts= [
     },
     {
         name: 'Claudia',
-        avatar: '../IMG/avatar_6.jpg',
+        avatar: 'IMG/avatar_6.jpg',
         visible: true,
         messages: [
             {
@@ -131,7 +131,7 @@ const contacts= [
     },
     {
         name: 'Federico',
-        avatar: '../IMG/avatar_7.jpg',
+        avatar: 'IMG/avatar_7.jpg',
         visible: true,
         messages: [
             {
@@ -148,7 +148,7 @@ const contacts= [
     },
     {
         name: 'Davide',
-        avatar: '../IMG/avatar_8.jpg',
+        avatar: 'IMG/avatar_8.jpg',
         visible: true,
         messages: [
             {
@@ -178,11 +178,19 @@ const app = new Vue({
     el:"#app",
     data:{
         contacts,
+        friendPointer: null,
     },
 
     methods:{
+       setFriendPointer: function(i){
+           this.friendPointer = i;
+           console.log(this.friendPointer);
+       },
 
+       getLastMessage: function(index,array){
+           console.log(array.length);
+            return index === array.length-1  
+       }
     }
-
 })
 // ---------- / PROGRAM --------

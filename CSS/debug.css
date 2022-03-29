@@ -44,3 +44,11 @@
 .debug #search {
   border: 1px dashed green;
 }
+
+.debug .pippo {
+  border: 1px dashed green;
+}
+
+.debug .friend-informations {
+  border: 1px dashed blue;
+}
