@@ -52,3 +52,22 @@
 .debug .friend-informations {
   border: 1px dashed blue;
 }
+
+.debug #text-area {
+  border: 1px dashed blue;
+}
+
+.debug #conversation {
+  border: 1px dashed red;
+}
+
+.debug #friend-profile {
+  border: 1px dashed black;
+}
+
+.debug .sent {
+  border: 1px dashed red;
+}
+.debug .received {
+  border: 1px dashed yellow;
+}

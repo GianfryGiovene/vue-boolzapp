@@ -12,6 +12,7 @@
   --secondary-icon-color: #6b7376;
   --secondary-text-color: #6b7376;
   --color-white: #fff;
+  --bg-sent-message: #d5f9ba;
 }
 
 /* / Root */
@@ -98,7 +99,8 @@
   border-radius: 50%;
   margin: 7.5px;
 }
-#user-options i {
+#user-options i,
+#friend-profile i {
   margin: 0 10px;
   color: var(--primary-icon-color);
 }
@@ -140,6 +142,8 @@
 
 #friends-list {
   list-style-type: none;
+  flex-grow: 1;
+  overflow-y: scroll;
 }
 #friends-list .friend {
   padding: 5px 5px 5px 15px;
@@ -152,7 +156,8 @@
   position: relative;
 }
 
-#friends-list img {
+#friends-list img,
+#info img {
   width: 55px;
   height: 55px;
   border-radius: 50%;
@@ -182,6 +187,66 @@
 /* chat side */
 #chat-area {
   width: 70%;
+  background-image: url(../IMG/mine.jpg);
+}
+
+#friend-profile {
+  height: 70px;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 20px;
+  background-color: var(--bg-primary-window);
+}
+
+#conversation {
+  flex-grow: 1;
+}
+
+#text-area {
+  height: 70px;
+}
+
+#info > div {
+  justify-content: center;
+}
+
+#conversation {
+  align-items: center;
+  margin: 30px 70px 0;
+}
+
+.conversation-text {
+  width: 35%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+}
+
+.received {
+  background-color: var(--color-white);
+  align-self: flex-start;
+}
+
+.sent {
+  background-color: var(--bg-sent-message);
+  align-self: end;
+}
+
+#text-area {
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  background-color: var(--bg-primary-window);
+}
+
+#text-area input {
+  height: 40px;
+  flex-grow: 1;
+  margin: 0 40px;
+}
+
+#text-area i {
+  color: var(--secondary-icon-color);
 }
 /* / chat side */
 

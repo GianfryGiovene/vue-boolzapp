@@ -9,6 +9,7 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/debug.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script type="text/javaScript" src="JS/script.js" defer></script>
     <title>Boolzapp</title>
@@ -59,14 +60,39 @@
                                 </div>
                             </div>
                         </div>
-
                     </li>
                     <!-- / friend message information -->
                 </ul>
             </nav>
             <!-- / navigation side -->
             <!-- chat side -->
-            <div id="chat-area"></div>
+            <div id="chat-area" class="wrap-column">
+                <div id="friend-profile" class="wrap">
+                    <div id="info" class="wrap">
+                        <img src="IMG/avatar_1.jpg" alt="">
+                        <div class="wrap-column">
+                            <h3>{{contacts[friendPointer].name}}</h3>
+                            <span>Ultimo accesso</span>
+                        </div>
+                    </div>
+                    <div id="options">
+                        <i class="fas fa-search icons-size"></i>
+                        <i class="fas fa-paperclip icons-size"></i>
+                        <i class="fas fa-ellipsis-v icons-size"></i>
+                    </div>
+                </div>
+                <div id="conversation" class="wrap-column">
+                    <div v-for="message in contacts[friendPointer].messages"
+                        :class="[messageSent(message.status),'conversation-text']">
+                        {{message.message}}
+                    </div>
+                </div>
+                <div id="text-area" class="wrap">
+                    <i class="far fa-laugh-wink icons-size"></i>
+                    <input id="message" type="text" placeholder="Scrivi un messaggio">
+                    <i class="fas fa-microphone icons-size"></i>
+                </div>
+            </div>
             <!-- / chat side -->
         </div>
         <!-- / Boolzapp application -->

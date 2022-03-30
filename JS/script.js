@@ -178,19 +178,29 @@ const app = new Vue({
     el:"#app",
     data:{
         contacts,
-        friendPointer: null,
+        friendPointer: 0, //sistemare logica per partire da schermata vuota (recap)
     },
 
     methods:{
        setFriendPointer: function(i){
+
            this.friendPointer = i;
-           console.log(this.friendPointer);
+           
        },
 
-       getLastMessage: function(index,array){
-           console.log(array.length);
+        getLastMessage: function(index,array){
+            console.log(array.length);
             return index === array.length-1  
-       }
+        },
+        
+
+        messageSent: function(status){
+            if(status!=='received'){
+                return 'sent'
+            }else{
+                return 'received'
+            }
+        }
     }
 })
 // ---------- / PROGRAM --------
