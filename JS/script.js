@@ -248,9 +248,7 @@ const app = new Vue({
 
             if(this.search===''){
                 this.contacts = this.cloneContacts;
-            }
-
-            
+            }      
         }
     }
 })
