@@ -232,7 +232,7 @@ const app = new Vue({
                 };
                 newMessageReceived.message='ok!';
                 this.contacts[this.friendPointer].messages.push(newMessageReceived);  
-            },3000)
+            },1000)
         },
      
     }
