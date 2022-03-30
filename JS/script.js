@@ -177,7 +177,9 @@ const app = new Vue({
     data:{
         contacts,
         friendPointer: 0, //sistemare logica per partire da schermata vuota (recap)
-        message:''
+        message:'',
+        search:'',
+        cloneContacts: contacts,
     },
 
     methods:{
@@ -234,7 +236,22 @@ const app = new Vue({
                 this.contacts[this.friendPointer].messages.push(newMessageReceived);  
             },1000)
         },
-     
+        
+        searchInFriends(){
+             friendsFind = [];
+            this.contacts.forEach((friend,index) => {
+                if(friend.name.toLowerCase().includes(this.search)){
+                    friendsFind.push (friend);
+                }
+            });
+            this.contacts = friendsFind;
+
+            if(this.search===''){
+                this.contacts = this.cloneContacts;
+            }
+
+            
+        }
     }
 })
 
