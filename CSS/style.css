@@ -5,9 +5,9 @@
   --bg-blue: #8edafc;
   --bg-selected: #e9ebeb;
   --bg-own-message: #d5f9ba;
+  --bg-text-message-area: #f3eeea;
   --bg-primary-window: #eaeaea;
   --bg-secondary-window: #6b7376;
-  --bg-chat: ../IMG/mine.jpg;
   --primary-icon-color: #b2b3b3;
   --secondary-icon-color: #6b7376;
   --secondary-text-color: #6b7376;
@@ -99,6 +99,7 @@
   border-radius: 50%;
   margin: 7.5px;
 }
+
 #user-options i,
 #friend-profile i {
   margin: 0 10px;
@@ -126,7 +127,8 @@
   color: var(--secondary-text-color);
 }
 /* / notifications */
-/* search area */
+
+/* search friends */
 #search {
   background-color: var(--bg-primary-window);
 }
@@ -136,7 +138,7 @@
   margin: 5px;
   width: calc(100% - 10px);
 }
-/* / search area */
+/* / search friends */
 
 /* friends list */
 
@@ -145,11 +147,16 @@
   flex-grow: 1;
   overflow-y: scroll;
 }
+/* friend & last message information */
 #friends-list .friend {
   padding: 5px 5px 5px 15px;
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid var(--secondary-text-color);
+}
+
+.friend.selected {
+  background-color: var(--bg-selected);
 }
 #friends-list .friend-informations {
   width: 100%;
@@ -181,6 +188,7 @@
   top: 0;
   right: 0;
 }
+/* / friend & last message information */
 /* / friends list */
 /* / navigation side */
 
@@ -189,7 +197,7 @@
   width: 70%;
   background-image: url(../IMG/mine.jpg);
 }
-
+/* friend profile */
 #friend-profile {
   height: 70px;
   align-items: center;
@@ -198,21 +206,17 @@
   background-color: var(--bg-primary-window);
 }
 
-#conversation {
-  flex-grow: 1;
-}
-
-#text-area {
-  height: 70px;
-}
-
 #info > div {
   justify-content: center;
 }
+/* /friend profile */
 
+/* conversation with friend */
 #conversation {
+  flex-grow: 1;
+  overflow-y: scroll;
   align-items: center;
-  margin: 30px 70px 0;
+  padding: 30px 70px 0;
 }
 
 .conversation-text {
@@ -231,12 +235,16 @@
   background-color: var(--bg-sent-message);
   align-self: end;
 }
+/* /conversation with friend */
+
+/* input area */
 
 #text-area {
+  height: 70px;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
-  background-color: var(--bg-primary-window);
+  padding: 0 30px;
+  background-color: var(--bg-text-message-area);
 }
 
 #text-area input {
@@ -248,6 +256,8 @@
 #text-area i {
   color: var(--secondary-icon-color);
 }
+
+/* / input area */
 /* / chat side */
 
 /* /Boolzapp application */

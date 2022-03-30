@@ -15,28 +15,34 @@
     <title>Boolzapp</title>
 </head>
 
-
 <body class="debug">
     <div id="app-background" class="wrap-column">
         <!-- background colors -->
         <div id="bg-upper-side"></div>
         <div id="bg-bottom-side"></div>
         <!-- / background colors -->
+
         <!-- Boolzapp application -->
         <div id="app" class="wrap">
             <!-- navigation side -->
             <nav class="wrap-column">
+                <!-- user profile -->
                 <div id="user-profile" class="wrap">
                     <div id="user-information" class="wrap">
                         <img src="IMG/avatar_io.jpg" alt="Me">
                         <span>Sofia </span>
                     </div>
+                    <!-- user options -->
                     <div id="user-options">
                         <i class="fas fa-circle-notch icons-size"></i>
                         <i class="fas fa-comment-alt icons-size"></i>
                         <i class="fas fa-ellipsis-v icons-size"></i>
                     </div>
+                    <!-- / user options -->
                 </div>
+                <!-- / user profile -->
+
+                <!-- app notifications -->
                 <div id="notifications" class="wrap">
                     <i class="fas fa-bell-slash icons-size"></i>
                     <div class="wrap-column">
@@ -44,54 +50,80 @@
                         <a href="#">Attivare notifiche desktop</a>
                     </div>
                 </div>
+                <!-- / app notifications -->
+
+                <!-- search friends -->
                 <div id="search">
-                    <input class="search" type="text" placeholder="    &#128269;      Cerca o inizia una nuova chat">
+                    <input @keyup.enter="" class="search" type="text"
+                        placeholder="    &#128269;      Cerca o inizia una nuova chat">
                 </div>
+                <!-- / search friends -->
+
+                <!-- friends list -->
                 <ul id="friends-list">
-                    <!-- friend message information -->
-                    <li v-for="(friend,index) in contacts" class="friend wrap">
-                        <div @click="setFriendPointer(index)" class="wrap friend-informations">
+                    <!-- friend & last message information -->
+                    <li @click="setFriendPointer(index)" v-for="(friend,index) in contacts"
+                        :class="[selectedFriend(index),'friend','wrap']">
+                        <div class="wrap friend-informations">
                             <img :src="friend.avatar" alt="">
                             <div class="wrap-column">
                                 <h3>{{friend.name}}</h3>
                                 <div v-for="(text,i) in friend.messages">
                                     <span v-if="getLastMessage(i,friend.messages)" class="text">{{text.message}}</span>
-                                    <span v-if="getLastMessage(i,friend.messages)" class="hours">{{text.date}}</span>
+                                    <span v-if="getLastMessage(i,friend.messages)"
+                                        class="hours">{{returnHoursFromString(text.date)}}</span>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <!-- / friend message information -->
+                    <!-- / friend & last message information -->
                 </ul>
+                <!-- /friends list -->
             </nav>
             <!-- / navigation side -->
+
             <!-- chat side -->
             <div id="chat-area" class="wrap-column">
+                <!-- friend profile -->
                 <div id="friend-profile" class="wrap">
+                    <!-- friend information -->
                     <div id="info" class="wrap">
                         <img src="IMG/avatar_1.jpg" alt="">
                         <div class="wrap-column">
                             <h3>{{contacts[friendPointer].name}}</h3>
-                            <span>Ultimo accesso</span>
+                            <span>Ultimo messaggio</span>
+                            <!-- UN ATTIMO DA VEDERE -->
                         </div>
                     </div>
+                    <!-- / friend information -->
+
+                    <!-- options for friend -->
                     <div id="options">
                         <i class="fas fa-search icons-size"></i>
                         <i class="fas fa-paperclip icons-size"></i>
                         <i class="fas fa-ellipsis-v icons-size"></i>
                     </div>
+                    <!-- options for friend -->
                 </div>
+                <!-- / friend profile -->
+
+                <!-- conversation with friend -->
                 <div id="conversation" class="wrap-column">
                     <div v-for="message in contacts[friendPointer].messages"
                         :class="[messageSent(message.status),'conversation-text']">
                         {{message.message}}
                     </div>
                 </div>
+                <!-- / conversation with friend -->
+
+                <!-- own input area -->
                 <div id="text-area" class="wrap">
                     <i class="far fa-laugh-wink icons-size"></i>
-                    <input id="message" type="text" placeholder="Scrivi un messaggio">
+                    <input @keyup.enter="newMessageSent" id="message" type="text" v-model="message"
+                        placeholder="Scrivi un messaggio" />
                     <i class="fas fa-microphone icons-size"></i>
                 </div>
+                <!-- / own input area -->
             </div>
             <!-- / chat side -->
         </div>

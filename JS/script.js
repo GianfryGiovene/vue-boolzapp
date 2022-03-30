@@ -4,7 +4,6 @@ Replica della grafica con la possibilità di avere messaggi scritti dall’utent
 Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
 */
 
-
 // ---------- GLOBAL VARIABLES --------
 const contacts= [
     {
@@ -169,7 +168,6 @@ const contacts= [
         ],
     }
 ];
-
 // ---------- / GLOBAL VARIABLES --------
 
 // ---------- PROGRAM --------
@@ -179,28 +177,66 @@ const app = new Vue({
     data:{
         contacts,
         friendPointer: 0, //sistemare logica per partire da schermata vuota (recap)
+        message:''
     },
 
     methods:{
-       setFriendPointer: function(i){
+        setFriendPointer(i){
 
-           this.friendPointer = i;
+            this.friendPointer = i;
            
-       },
+        },
 
-        getLastMessage: function(index,array){
-            console.log(array.length);
+        getLastMessage(index,array){
             return index === array.length-1  
         },
         
-
-        messageSent: function(status){
+        messageSent(status){
             if(status!=='received'){
                 return 'sent'
             }else{
                 return 'received'
             }
-        }
+        },
+
+        selectedFriend(index){
+            if(index === this.friendPointer){
+                return 'selected'
+            }else{
+                return ''
+            }
+        },
+        
+        returnHoursFromString(allData){
+            return allData.split('').slice(11,16).join('')
+        },
+
+        returnDataFromString(allData){
+            return allData.split('').slice(0,10).join('')
+        },
+
+        newMessageSent(){
+            const newMessageSent={
+                date:'',
+                message:'',
+                status:'sent'
+            };
+            newMessageSent.message=this.message;
+            this.contacts[this.friendPointer].messages.push(newMessageSent);
+            this.message='';
+            setTimeout(()=>{
+                const newMessageReceived={
+                    date:'',
+                    message:'',
+                    status:'received'
+                };
+                newMessageReceived.message='ok!';
+                this.contacts[this.friendPointer].messages.push(newMessageReceived);  
+            },3000)
+        },
+     
     }
 })
+
+
 // ---------- / PROGRAM --------
