@@ -61,7 +61,7 @@
                 <!-- friends list -->
                 <ul id="friends-list">
                     <!-- friend & last message information -->
-                    <li @click="setFriendPointer(index)" v-for="(friend,index) in contacts"
+                    <li @click="setFriendPointer(index)" v-show="isSearched(friend)" v-for="(friend,index) in contacts"
                         :class="[selectedFriend(index),'friend','wrap']">
                         <div class="wrap friend-informations">
                             <img :src="friend.avatar" alt="">
@@ -108,7 +108,7 @@
 
                 <!-- conversation with friend -->
                 <div id="conversation" class="wrap-column">
-                    <div v-for="message in contacts[friendPointer].messages"
+                    <div @click="" v-for="message in contacts[friendPointer].messages"
                         :class="[messageSent(message.status),'conversation-text']">
                         {{message.message}}
                     </div>

@@ -179,7 +179,7 @@ const app = new Vue({
         friendPointer: 0, //sistemare logica per partire da schermata vuota (recap)
         message:'',
         search:'',
-        cloneContacts: contacts,
+        // ancestorContacts: contacts,
     },
 
     methods:{
@@ -237,18 +237,36 @@ const app = new Vue({
             },1000)
         },
         
-        searchInFriends(){
-             friendsFind = [];
-            this.contacts.forEach((friend,index) => {
-                if(friend.name.toLowerCase().includes(this.search)){
-                    friendsFind.push (friend);
-                }
-            });
-            this.contacts = friendsFind;
+        // searchInFriends(){
+        //     friendsFind = [];
+        //     this.contacts.forEach((friend,index) => {
+        //         if(friend.name.toLowerCase().includes(this.search.toLowerCase())){
+        //             friendsFind.push (friend);
+        //         }
+        //     });
+        //     this.contacts = friendsFind;
 
-            if(this.search===''){
-                this.contacts = this.cloneContacts;
-            }      
+        //     if(this.search===''){
+        //         this.contacts = this.ancestorContacts;
+        //     }      
+        // },
+        
+
+        searchInFriends(){
+            
+            this.contacts.forEach(friend => { 
+                if(!friend.name.toLowerCase().includes(this.search.toLowerCase())){
+                    friend.visible=false;
+                }else{
+                    friend.visible=true;
+                }
+                console.log(friend);
+             
+            });
+        },
+
+        isSearched(friend){
+            return friend.visible !== false
         }
     }
 })
