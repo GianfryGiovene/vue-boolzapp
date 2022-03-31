@@ -82,7 +82,10 @@
             <!-- / navigation side -->
 
             <!-- chat side -->
-            <div id="chat-area" class="wrap-column">
+            <div id="chat-null" v-if="(friendPointer===null)?true:false" class="wrap">
+                <h3>Boolzapp - a (not very) innovative messaging platform</h3>
+            </div>
+            <div id="chat-area" v-if="(friendPointer===null)?false:true" class="wrap-column">
                 <!-- friend profile -->
                 <div id="friend-profile" class="wrap">
                     <!-- friend information -->
@@ -90,7 +93,7 @@
                         <img src="IMG/avatar_1.jpg" alt="">
                         <div class="wrap-column">
                             <h3>{{contacts[friendPointer].name}}</h3>
-                            <span>Ultimo messaggio</span>
+                            <span>Ultimo accesso oggi alle 12:00</span>
                             <!-- UN ATTIMO DA VEDERE -->
                         </div>
                     </div>
@@ -108,11 +111,25 @@
 
                 <!-- conversation with friend -->
                 <div id="conversation" class="wrap-column">
-                    <div @click="" v-for="message in contacts[friendPointer].messages"
-                        :class="[messageSent(message.status),'conversation-text']">
-                        {{message.message}}
+                    <div v-for="message in contacts[friendPointer].messages"
+                        :class="[messageSent(message.status),'conversation-text','wrap-column']">
+                        <div class="wrap">
+                            {{message.message}}
+                            <i @click="contextMenuShow(message.contextMenuBool)" class="fas fa-chevron-down"></i>
+                        </div>
+                        <span>{{returnHoursFromString(message.date)}}</span>
+                        <div v-show="message.contextMenuBool" id="context-menu">
+                            <ul>
+                                <li>Cancella</li>
+                                <li>Passa oltre</li>
+                            </ul>
+                        </div>
                     </div>
+
                 </div>
+                <!-- context menu -->
+
+                <!-- / context menu -->
                 <!-- / conversation with friend -->
 
                 <!-- own input area -->
@@ -125,9 +142,27 @@
                 <!-- / own input area -->
             </div>
             <!-- / chat side -->
+
         </div>
         <!-- / Boolzapp application -->
     </div>
+
+    <!-- <nav class="context-menu">
+        <ul class="context-menu__items">
+            <li class="context-menu__item">
+                <a href="#" class="context-menu__link">
+                    <i class="fa fa-eye"></i> View Task
+                </a>
+            </li>
+            <li class="context-menu__item">
+                <a href="#" class="context-menu__link">
+                    <i class="fa fa-edit"></i> Edit Task
+                </a>
+            </li>
+        </ul>
+    </nav> -->
+
+
 </body>
 
 </html>

@@ -197,6 +197,18 @@
   width: 70%;
   background-image: url(../IMG/mine.jpg);
 }
+#chat-null{
+  width: 70%;
+  background-image: url(../IMG/mine.jpg);
+  justify-content: center;
+  align-items: center;
+}
+
+#chat-null h3{
+  font-size: 2rem;
+  width: 70%;
+  text-align: center;
+}
 /* friend profile */
 #friend-profile {
   height: 70px;
@@ -224,8 +236,19 @@
   padding: 10px;
   margin: 10px 0;
   border-radius: 10px;
+  position: relative;
 }
 
+.conversation-text div{
+  justify-content: space-between;
+}
+
+.conversation-text span{
+  align-self: flex-end;
+  margin-top: 5px;
+  font-size: 0.8rem;
+
+}
 .received {
   background-color: var(--color-white);
   align-self: flex-start;
@@ -235,6 +258,28 @@
   background-color: var(--bg-sent-message);
   align-self: end;
 }
+
+/* context menu */
+
+#context-menu {
+  background-color: var(--color-white);
+  width: 90px;
+  height: 40px;
+  position: absolute;
+  z-index: 10;
+  left: 90;
+}
+
+#context-menu ul {
+  list-style-type: none;
+}
+
+#context-menu li {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+/* /context menu */
 /* /conversation with friend */
 
 /* input area */
